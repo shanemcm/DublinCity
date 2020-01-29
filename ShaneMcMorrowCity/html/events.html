@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Attractions</title>
+<link rel="icon" href="assets/dublin.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://kit.fontawesome.com/1b930fa985.js" crossorigin="anonymous"></script>
+<script src="js/mycanvas.js"></script>
+<style>
+pre{
+  font-family: 'Bebas Neue', cursive;
+    text-align: center;
+    font-size: 200%;
+}
+</style>
+
+<script type="text/javascript" src="js/script.js"></script>
+<link rel="stylesheet" href="css/newstyle.css">
+</head>
+
+
+
+    <div class="topnav" id="myTopnav">
+        <div class="citylogo">DUBLIN CITY</div>
+        <div class="acontainer">
+      <a href="index.html">Home</a>
+      <a href="historygallery.html">History & Gallery</a>
+      <a href="attractions.html" class="active">See & Do</a>
+      <a href="events.html">What's On?</a>
+      <a href="contact.html">Contact Us</a>
+         </div>
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+      </a>
+    </div>
+   
+
+    <div class="homebg">
+        <div class="homebgfilter">
+            <div class="content">
+                <h1 class="logo"> Dublin</h1>
+                <h2>What's Happening?</h2>
+                <h3>See below to see what's coming up in the City!</h3>
+            </div>
+        </div>
+    </div>
+
+
+<div class="content">
+<h4 style="font-size: 200%;">January Events</h4>
+  <table id="events" class="events">
+    <tr>
+      <th>What?</th>
+      <th>Where?</th>
+      <th>When?</th>
+    </tr>
+    <tr>
+      <td>Planting Heaven</td>
+      <td>St. Mark's Church</td>
+      <td>January 24th</td>
+    </tr>
+    <tr>
+      <td>Chinese New Year Party</td>
+      <td>Tramline</td>
+      <td>January 24th</td>
+    </tr>
+  </table>
+
+</div>
+
+
+<div class="content">
+  <h4 style="font-size: 200%;">February Events</h4>
+    <table id="events" class="events">
+      <tr>
+        <th>What?</th>
+        <th>Where?</th>
+        <th>When?</th>
+      </tr>
+      <tr>
+        <td>Tom Jones</td>
+        <td>The Button Factory</td>
+        <td>February 7th</td>
+      </tr>
+      <tr>
+        <td>Hospitality Expo</td>
+        <td>RDS Simmonscourt</td>
+        <td>February 25th</td>
+      </tr>
+    </table>
+  
+  </div>
+
+  <div class="content">
+  <h4 style="font-size: 200%;">March Events</h4>
+    <table id="events" class="events">
+      <tr>
+        <th>What?</th>
+        <th>Where?</th>
+        <th>When?</th>
+      </tr>
+      <tr>
+        <td>Lynparza Brand Summit 2020</td>
+        <td>Clayton Hotel</td>
+        <td>March 3rd</td>
+      </tr>
+      <tr>
+        <td>Dublin Jobs Fair</td>
+        <td>Aviva Stadium</td>
+        <td>March 26th</td>
+      </tr>
+    </table>
+  
+  </div>
+
+
+<div class="content">
+    <h4 style="font-size: 200%;">Upcoming Special Events</h4>
+            <button onclick="loadEvents()">Load Events</button>
+            <p id="test"></p>
+            <pre id="events1"></pre>
+</div>
+
+<script type="text/javascript">
+function loadEvents() 
+{
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("GET", "events.csv", false);
+    xmlhttp.send();
+    document.getElementById("events1").innerHTML =
+        xmlhttp.responseText;
+}
+</script>
+   
+   
+    <footer>
+        <div class="canvasposition">
+            <canvas id="myCanvas" width="550" height="100"></canvas>
+          </div>
+<div style="padding-left: 5px;">
+                <ul>
+                    <li><a href="tel:353858585858">Phone: 085 858 5858</a></li>
+                    <li><a href="mailto:info@dublin.ie">Email: info@dublin.ie</a></li>
+                    <li id="iconsocial">
+                        <a href="http://www.instagram.com"><i class="fab fa-instagram"></i></a>
+                      <a href="http://www.twitter.com"><i class="fab fa-twitter-square"></i></a>
+                      <a href="http://www.facebook.com"><i class="fab fa-facebook-square"></i></a>
+                    </li>
+                </ul>
+            </div>
+    </footer>
+</body>
+</html>

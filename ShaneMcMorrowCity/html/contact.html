@@ -1,0 +1,181 @@
+<?php
+if(isset($_POST['submit'])){
+//===================================================================================
+// This script is used in conjuction with your conacts form.
+// This will be the action that the FORM performs and will be calling this PHP script file.
+// It will match up with YOUR variables names
+//===================================================================================
+// Author : Miro
+// Dated : 07/11/2019
+// Version : 1.01
+//===================================================================================
+// Read the variables being posted from the form.
+// Customize the $_REQUEST["YOUR_VARIABLE_NAME_HERE"] read to match what your are, You can add more
+$cCustomerFirstName  = $_REQUEST["firstname"];
+$cCustomerSecondName  = $_REQUEST["lastname"];
+$cCustomerEmail = $_REQUEST["cemail"];
+$cCustomerPhone = $_REQUEST["mobile"];
+$cCustomerBudget = $_REQUEST["budget"]
+$cCustomerVisit = $_REQUEST["time"]
+$cCustomerQuery =$_REQUEST["subject"]
+//$cColorcode??? = $_REQUEST["colorcodepicker"];
+// Call back URL
+$sURltoCall     = $_REQUEST["http://shane.innovador-ie.com/contact2.html"];
+// define your additional fields here
+
+// prepare the email body.
+// PLAIN TEXT FORMAT
+$cEmailBody = "";
+$cEmailBody .= "Information from Web form completed online by Web visitor @ " .date("Y-d-m").chr(13);
+$cEmailBody .= "============================================================".chr(13);
+$cEmailBody .= "Customer First Name : ".$cCustomerFirstName.chr(13);
+$cEmailBody .= "Customer Second Name : ".$cCustomerSecondName.chr(13);
+$cEmailBody .= "Customer Email : ".$cCustomerEmail.chr(13);
+$cEmailBody .= "Customer Phone : ".$cCustomerPhone.chr(13);
+$cEmailBody .= "Customer Budget : ".$cCustomerBudget.chr(13);
+$cEmailBody .= "First Time : ".$cCustomerVisit.chr(13);
+$cEmailBody .= "Subject : ".$cCustomerQuery.chr(13);
+
+
+// Add extra lines to this plain TEXT.
+// $cEmailBody .= "Customer Phone : ".$cCustomerPhone.chr(13);
+// add additional fields here...
+
+// YOU MAY STYLE THE PLAIN TEXT WITH HTML TAG's and your email program will render it accordingly if you prefer to have a better formatted email.
+
+
+// Send the mail with default header settings and using my email, replace my email address to test, once done, put mine back so i can see that the uoutput gets emailed to me
+// which indicates successfully execution of contact form.
+
+mail("shane.mcmorrow@hotmail.com","Online Web query - Dublin City website",$cEmailBody);
+// i am using the DEFAULT mail command it PHP, this is one that is standard, there are better ways, BUT for this excerice this one is BEST!
+// it will be send from your Cloud Space that i have created for you. So dont expect your name, if you want read up about this and you will be able to
+// set the Headers for this mail..
+///https://www.php.net/manual/en/function.mail.php
+
+// customize your message, it will only be shown for a couple of milliseconds, but making it this big will show you that it was been sent.
+//If you have some errors in your code, you will never see this message.
+
+//if avalue has been sent to when you called this it will redirect to that one.
+// USE the HIDDEN input declaration in the FORM for the post to "push" the data across.
+// Learn about HIDDEN HTML input's
+// or by default it will load your index.html page.
+header("Location: contact.html");
+}
+?>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Us</title>
+<link rel="icon" href="assets/dublin.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://kit.fontawesome.com/1b930fa985.js" crossorigin="anonymous"></script>
+<script src="js/mycanvas.js"></script>
+<script src="js/slider.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
+
+<script type="text/javascript" src="js/formvalidation.js"></script>
+<link rel="stylesheet" href="css/newstyle.css">
+<link rel="stylesheet" href="css/form.css">
+</head>
+
+
+
+    <div class="topnav" id="myTopnav">
+        <div class="citylogo">DUBLIN CITY</div>
+        <div class="acontainer">
+      <a href="index.html">Home</a>
+      <a href="historygallery.html">History & Gallery</a>
+      <a href="attractions.html" >See & Do</a>
+      <a href="events.html">What's On?</a>
+      <a href="contact.html" class="active">Contact Us</a>
+         </div>
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+      </a>
+    </div>
+   
+
+    <div class="homebg">
+        <div class="homebgfilter">
+            <div class="content">
+                <h1 class="logo"> Dublin</h1>
+                <h2>GET IN TOUCH</h2>
+                <h3>LET US KNOW THE DETAILS OF YOUR STAY. <br> A MEMBER OF OUR TEAM WILL BE IN TOUCH WITH RECOMMENDATIONS!</h3>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+
+        <form name="contactform" action="" method="POST" onsubmit="return validateForm()">
+      
+          <label for="fname">First Name</label>
+          <input type="text" id="fname" name="firstname" placeholder="Your name.." required autofocus>
+      
+          <label for="lname">Last Name</label>
+          <input type="text" id="lname" name="lastname" placeholder="Your last name.." required>
+
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="cemail" placeholder="Your e-mail.." required>
+      
+          <label for="mobile">Mobile Number:</label>
+          <input type="tel" id="mobile" name="mobile" placeholder="Your mobile number..">
+
+          <label for="budget">Your Budget:   &#8364;</label><span id="demo"></span>
+          <div class="slidecontainer">
+            <input type="range" name="budget" min="100" max="10000" value="500" class="slider" id="myRange" placeholder="demo" oninput="myRange = demo">
+          </div>
+
+          <label for="howmany">How Many People?</label>
+          <input type="number" id="howmany" name="howmany" placeholder="">
+
+          <label for="arrival">Your Arrival Date:</label>
+          <input type="date" id="date" name="date" min="2020-01-01" max="2029-12-31">
+
+          <label class="checkcontainer">First Time in Dublin?
+            <input type="checkbox" checked="checked" value="yes" id="time" name="time">
+            <span class="checkmark"></span>
+          </label>
+          
+          <label for="subject">Subject:</label>
+          <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+      
+          <input type="submit" value="Submit">
+      
+        </form>
+      </div> 
+      <script>
+        var slider = document.getElementById("myRange");
+        var output = document.getElementById("demo");
+        output.innerHTML = slider.value;
+        
+        slider.oninput = function() {
+          output.innerHTML = this.value;
+        }
+        </script>
+
+      
+    <footer>
+      <div class="canvasposition">
+          <canvas id="myCanvas" width="550" height="100"></canvas>
+          </div>
+<div style="padding-left: 5px;">
+                <ul>
+                    <li><a href="tel:353858585858">Phone: 085 858 5858</a></li>
+                    <li><a href="mailto:info@dublin.ie">Email: info@dublin.ie</a></li>
+                    <li id="iconsocial">
+                      <a href="http://www.instagram.com"><i class="fab fa-instagram"></i></a>
+                      <a href="http://www.twitter.com"><i class="fab fa-twitter-square"></i></a>
+                      <a href="http://www.facebook.com"><i class="fab fa-facebook-square"></i></a>
+                    </li>
+                </ul>
+            </div>
+            </footer>
+</body>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html manifest="history.manifest">
+<head>
+<title>History & Gallery</title>
+<link rel="icon" href="assets/dublin.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://kit.fontawesome.com/1b930fa985.js" crossorigin="anonymous"></script>
+<script src="js/lightbox.js"></script>
+<script src="js/mycanvas.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
+
+<link rel="stylesheet" href="css/lightbox.css">
+<link rel="stylesheet" href="css/newstyle.css">
+</head>
+    <div class="topnav" id="myTopnav">
+        <div class="citylogo">DUBLIN CITY</div>
+        <div class="acontainer">
+      <a href="index.html">Home</a>
+      <a href="historygallery.html" class="active">History & Gallery</a>
+      <a href="attractions.html">See & Do</a>
+      <a href="events.html">What's On?</a>
+      <a href="contact.html">Contact Us</a>
+         </div>
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+      </a>
+    </div>
+   
+
+    <div class="homebg">
+        <div class="homebgfilter">
+            <div class="content">
+                <h1 class="logo"> Dublin</h1>
+                <h2>A History in Media</h2>
+                <h3>see below</h3>
+            </div>
+        </div>
+    </div>
+
+
+        <div class="videocontent" style="margin-right: 12.5%; margin-left: 12.5%;">
+          <video width="100%" height="100%" max-width="100%" controls>
+            <source src="assets/history.mp4" type="video/mp4">
+            <source src="movie.ogg" type="video/ogg">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+
+<div class="content" style="padding-top: 10px;">
+
+        <!-- Images used to open the lightbox -->
+<div class="row">
+    <div class="column">
+      <img src="assets/collegegreenhistory.jpg" onclick="openModal();currentSlide(1)" class="hover-shadow">
+    </div>
+    <div class="column">
+      <img src="assets/GPOHIST.jpg" onclick="openModal();currentSlide(2)" class="hover-shadow">
+    </div>
+    <div class="column">
+      <img src="assets/Sackville.jpg" onclick="openModal();currentSlide(3)" class="hover-shadow">
+    </div>
+    <div class="column">
+      <img src="assets/DameSt.jpg" onclick="openModal();currentSlide(4)" class="hover-shadow">
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="column">
+      <img src="assets/stout.jpg" onclick="openModal();currentSlide(5)" class="hover-shadow">
+    </div>
+    <div class="column">
+      <img src="assets/moore.jpg" onclick="openModal();currentSlide(6)" class="hover-shadow">
+    </div>
+    <div class="column">
+      <img src="assets/abbey.jpg" onclick="openModal();currentSlide(7)" class="hover-shadow">
+    </div>
+    <div class="column">
+      <img src="assets/histrinity.jpg" onclick="openModal();currentSlide(8)" class="hover-shadow">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="column">
+    </div>
+    <div class="column">
+      <img src="assets/fourcourts.jpg" onclick="openModal();currentSlide(9)" class="hover-shadow">
+    </div>
+    <div class="column">
+      <img src="assets/bridge.jpg" onclick="openModal();currentSlide(10)" class="hover-shadow">
+    </div>
+    <div class="column">
+    </div>
+  </div>
+  <!-- The Modal/Lightbox -->
+  <div id="myModal" class="modal" name="myModal">
+    <span class="close cursor" onclick="closeModal()">&times;</span>
+    <div class="modal-content">
+  
+      <div class="mySlides">
+        <div class="numbertext">1 / 10</div>
+        <img src="assets/collegegreenhistory.jpg" style="width:100%">
+      </div>
+  
+      <div class="mySlides">
+        <div class="numbertext">2 / 10</div>
+        <img src="assets/GPOHIST.jpg" style="width:100%">
+      </div>
+  
+      <div class="mySlides">
+        <div class="numbertext">3 / 10</div>
+        <img src="assets/Sackville.jpg" style="width:100%">
+      </div>
+  
+      <div class="mySlides">
+        <div class="numbertext">4 / 10</div>
+        <img src="assets/DameSt.jpg" style="width:100%">
+      </div>
+
+      <div class="mySlides">
+        <div class="numbertext">5 / 10</div>
+        <img src="assets/stout.jpg" style="width:100%">
+      </div>
+
+      <div class="mySlides">
+        <div class="numbertext">6 / 10</div>
+        <img src="assets/moore.jpg" style="width:100%">
+      </div>
+
+      <div class="mySlides">
+        <div class="numbertext">7 / 10</div>
+        <img src="assets/abbey.jpg" style="width:100%">
+      </div>
+
+      <div class="mySlides">
+        <div class="numbertext">8 / 10</div>
+        <img src="assets/histrinity.jpg" style="width:100%">
+      </div>
+
+      <div class="mySlides">
+        <div class="numbertext">9 / 10</div>
+        <img src="assets/fourcourts.jpg" style="width:100%">
+      </div>
+
+      <div class="mySlides">
+        <div class="numbertext">10 / 10</div>
+        <img src="assets/bridge.jpg" style="width:100%">
+      </div>
+  
+      <!-- Next/previous controls -->
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+  
+      <!-- Caption text -->
+      <div class="caption-container">
+        <p id="caption"></p>
+      </div>
+  
+      <!-- Thumbnail image controls -->
+      <div class="column">
+        <img class="pics" src="assets/collegegreenhistory.jpg" onclick="currentSlide(1)" alt="College Green, Outside Trinity 1932">
+      </div>
+  
+      <div class="column">
+        <img class="pics" src="assets/GPOHIST.jpg" onclick="currentSlide(2)" alt="GPO from Nelson’s Pillar 1943">
+      </div>
+  
+      <div class="column">
+        <img class="pics" src="assets/Sackville.jpg" onclick="currentSlide(3)" alt="Sackville Street, 1916">
+      </div>
+  
+      <div class="column">
+        <img class="pics" src="assets/DameSt.jpg" onclick="currentSlide(4)" alt="Dame St, opposite Dublin Castle">
+      </div>
+
+      <div class="column">
+        <img class="pics" src="assets/stout.jpg" onclick="currentSlide(5)" alt="Steam-powered barges carrying barrels of stout in Dublin in February 1911">
+      </div>
+
+      <div class="column">
+        <img class="pics" src="assets/moore.jpg" onclick="currentSlide(6)" alt="Moore Street in March 1946">
+      </div>
+
+      <div class="column">
+        <img class="pics" src="assets/abbey.jpg" onclick="currentSlide(7)" alt="The Abbey Theatre in 1930">
+      </div>
+
+      <div class="column">
+        <img class="pics" src="assets/histrinity.jpg" onclick="currentSlide(8)" alt="Trinity College in 1920">
+      </div>
+
+      <div class="column">
+        <img class="pics" src="assets/fourcourts.jpg" onclick="currentSlide(9)" alt="The Four Courts in April 1962">
+      </div>
+
+      <div class="column">
+        <img class="pics" src="assets/bridge.jpg" onclick="currentSlide(10)" alt="O'Connell Bridge in May 1918">
+      </div>
+    </div>
+  </div>
+</div>
+    <footer>
+      <div class="canvasposition">
+        <canvas id="myCanvas" width="550" height="100"></canvas>
+    </div>
+<div style="padding-left: 5px;">
+                <ul>
+                    <li><a href="tel:353858585858">Phone: 085 858 5858</a></li>
+                    <li><a href="mailto:info@dublin.ie">Email: info@dublin.ie</a></li>
+                    <li id="iconsocial">
+                        <a href="http://www.instagram.com"><i class="fab fa-instagram"></i></a>
+                        <a href="http://www.twitter.com"><i class="fab fa-twitter-square"></i></a>
+                        <a href="http://www.facebook.com"><i class="fab fa-facebook-square"></i></a>
+                    </li>
+                </ul>
+            </div>
+    </footer>
+</body>
+</html>
